@@ -1,0 +1,17 @@
+---
+// Function that returns the word "render" after 2 seconds
+const getRenderTxt = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("render");
+    }, 2000);
+  });
+};
+
+const text = await getRenderTxt();
+import { Button } from "./Button";
+
+Astro.response.headers.set('Cache-Control', 'public, max-age=3600');
+---
+
+    <Button text={text}/>
